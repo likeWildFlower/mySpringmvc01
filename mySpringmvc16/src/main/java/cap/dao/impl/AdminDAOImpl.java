@@ -7,8 +7,9 @@ import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
+
+
 @Repository(value = "adminDAO")
 public class AdminDAOImpl implements AdminDAO {
 
@@ -33,8 +34,21 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
     @Override
+    public int addAdmin(Admin admin) {
+        String sql="insert into admin(username,password) values(?,?)";
+        return   jdbcTemplate.update(sql,new Object[]{admin.getUsername(),admin.getPassword()});
+    }
+    @Override
+    public int deleteById(Integer id) {
+        String sql="delete from admin where id= ?";
+        return jdbcTemplate.update(sql,new Object[]{id});
+    }
+
+    @Override
     public int getTotalCount() {
         String sql="select count(*) from admin";
         return jdbcTemplate.queryForObject(sql,Integer.class);
     }
+
+
 }

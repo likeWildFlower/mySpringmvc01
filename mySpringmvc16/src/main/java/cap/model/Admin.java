@@ -4,6 +4,9 @@ public class Admin {
     private int id;
     private String username;
     private  String password;
+    public Admin(){
+
+    }
 
     public int getId() {
         return id;

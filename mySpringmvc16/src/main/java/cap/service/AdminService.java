@@ -6,4 +6,8 @@ import cap.util.PageBean;
 public interface AdminService {
     Admin login(Admin admin);
     PageBean findByPage(int pageNo,int pageSize);
+    void deleteById(Integer id);
+    void addAdmin(Admin admin);
+
+
 }

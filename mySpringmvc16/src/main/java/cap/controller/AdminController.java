@@ -1,14 +1,22 @@
 package cap.controller;
 
+import cap.model.Admin;
+import cap.dao.AdminDAO;
 import cap.service.AdminService;
 import cap.util.PageBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.IdentityHashMap;
 
 @Controller
 @RequestMapping("/")
@@ -23,5 +31,25 @@ public class AdminController {
         modelAndView.addObject("pageBean",pageBean);
         modelAndView.setViewName("list");
         return modelAndView;
+    }
+   //添加用户信息
+    @RequestMapping(value = "add" ,method = RequestMethod.POST)
+    public String add(@RequestParam Admin admin){
+        adminService.addAdmin(admin);
+       return "redirect:/list";
+    }
+    @RequestMapping(value = "add" ,method = RequestMethod.GET)
+    public String add(){
+        return "add";
+    }
+
+
+
+
+        // 删除用户信息
+    @RequestMapping(value = "delete/{id}",method = RequestMethod.GET)
+    public String delete(@PathVariable("id") Integer id){
+        adminService.deleteById(id);
+        return "redirect:/list";
     }
 }

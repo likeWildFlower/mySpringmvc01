@@ -30,4 +30,17 @@ public class AdminServiceImpl implements AdminService{
         pageBean.setTotalRecords(totalCount);
         return pageBean;
     }
+
+    @Override
+    public void deleteById(Integer id) {
+       // String sql="delete from admin where id=?";
+       adminDAO.deleteById(id);
+    }
+
+    @Override
+    public void addAdmin(Admin admin) {
+        adminDAO.addAdmin(admin);
+    }
+
+
 }
