@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>mySpringmvc1.6</artifactId>
     <packaging>pom</packaging>
     <groupId>cn.edu.cap</groupId>
