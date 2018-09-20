@@ -11,5 +11,5 @@ public interface AdminService {
     int addAdmin(Admin admin);
     int updateAdmin(Admin admin);
     int deleteAdmin(Integer id);
-    PageBean findByPage(int pageNo,int pageSize);
+    PageBean findByPage(int pageNo, int pageSize);
 }

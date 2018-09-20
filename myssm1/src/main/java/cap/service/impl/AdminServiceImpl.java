@@ -47,6 +47,6 @@ public class AdminServiceImpl implements AdminService {
         pageBean.setList(adminList);
         pageBean.setPageSize(pageSize);
         pageBean.setPageNo(pageNo);
-        return pageBean;
+         return pageBean;
     }
 }

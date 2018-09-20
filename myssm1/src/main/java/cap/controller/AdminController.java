@@ -1,5 +1,6 @@
 package cap.controller;
 
+
 import cap.model.Admin;
 import cap.service.AdminService;
 import cap.util.PageBean;
@@ -35,10 +36,10 @@ public class AdminController {
     }
     @RequestMapping(value = "/lists" ,method = RequestMethod.GET )
     public ModelAndView fingByPage(@RequestParam(value = "pageNo",required = true,defaultValue ="1" )Integer pageNo){
-        ModelAndView modelAndView=new ModelAndView();
+        ModelAndView model=new ModelAndView();
         PageBean pageBean=adminService.findByPage(pageNo,5);
-        modelAndView.addObject("pageBean",pageBean);
-        modelAndView.setViewName("lists");
-        return modelAndView;
+        model.addObject("pageBean",pageBean);
+        model.setViewName("lists");
+        return model;
     }
 }

@@ -13,7 +13,7 @@
     <title>Title</title>
 </head>
 <body>
-<%--@elvariable id="admin" type="cap"--%>
+
 <form action="add" method="post">
     <input type="text" name="username"><br>
     <input type="text" name="password"><br>
